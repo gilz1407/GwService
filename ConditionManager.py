@@ -5,7 +5,6 @@ class ConditionManager():
     def __init__(self):
         self.conditions = []
 
-
     def readFromFile(self):
         conditions = []
         lineIndex = -1
