@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3a1fd947-8b7d-4fc5-9f73-8236147ba00a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConditionManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConditionManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Examiner.py" beforeDir="false" afterPath="$PROJECT_DIR$/Examiner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="124" selection-end-column="23" />
+            <state relative-caret-position="316">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -59,16 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="condition.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="condition.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/condition.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="9" column="397" selection-start-line="9" selection-start-column="397" selection-end-line="9" selection-end-column="397" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="conditionA.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conditionA.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="231">
+              <caret line="7" column="23" selection-end-line="9" selection-end-column="397" />
             </state>
           </provider>
         </entry>
@@ -99,8 +100,8 @@
         <option value="$PROJECT_DIR$/Examiner.py" />
         <option value="$PROJECT_DIR$/config.ini" />
         <option value="$PROJECT_DIR$/ConditionManager.py" />
-        <option value="$PROJECT_DIR$/condition.txt" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/condition.txt" />
       </list>
     </option>
   </component>
@@ -246,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561268024028</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="run preparations">
+      <created>1561517406347</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561517406347</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -445,16 +453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conditionA.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/condition.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Examiner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="590">
@@ -481,11 +479,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="124" selection-end-column="23" />
+        <state relative-caret-position="316">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conditionA.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="23" selection-end-line="9" selection-end-column="397" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/condition.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="397" selection-start-line="9" selection-start-column="397" selection-end-line="9" selection-end-column="397" />
         </state>
       </provider>
     </entry>

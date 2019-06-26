@@ -46,9 +46,6 @@ def Init():
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
     r.set('tempComb', json.dumps(dict))
-    #start selector service
-    #requests.post(configDef['selectorUrl'])
-
 
 def calcBar(exp, comb):
     result = ""
