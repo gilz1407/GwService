@@ -1,5 +1,5 @@
 import re
-
+import redis
 
 class ConditionManager():
     def __init__(self):
