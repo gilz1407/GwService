@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a1fd947-8b7d-4fc5-9f73-8236147ba00a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Combination.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Combination.py" beforeDir="false" afterPath="$PROJECT_DIR$/Combination.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,11 +29,8 @@
       <file leaf-file-name="Combination.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combination.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="66">
+              <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -279,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561568514960</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="remove CrossInfra">
+      <created>1561569088789</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561569088789</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -312,7 +315,8 @@
     <MESSAGE value="read conditions from file" />
     <MESSAGE value="conditions parser" />
     <MESSAGE value="run preparations" />
-    <option name="LAST_COMMIT_MESSAGE" value="run preparations" />
+    <MESSAGE value="remove CrossInfra" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove CrossInfra" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -535,11 +539,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combination.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="66">
+          <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>

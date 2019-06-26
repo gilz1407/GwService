@@ -31,7 +31,7 @@ class Combination:
             self.finalLst[self.constants[2]] = self.CreateSequence(x, 2, self.dynamicBarMap['third'])
             self.finalLst[self.constants[3]] = self.CreateSequence(x, 3, self.dynamicBarMap['four'])
             temp = self.finalLst
-            combinationsLst.append([temp[:],Helper.listLength(temp),[[],[],[],[],[],-1],[]]) #combination tuple(items,graph details,conditions)
+            combinationsLst.append([temp[:], Helper.listLength(temp), [[], [], [], [], [], -1], []]) #combination tuple(items,graph details,conditions)
 
             y += 1
 
@@ -39,7 +39,7 @@ class Combination:
         print("total ", y)
 
     def CreateSequence(self,combination,counter,lst):
-        survivals=[]
+        survivals = []
         for item in range(0, combination[counter]):
             survivals.append(lst[item])
         return survivals
