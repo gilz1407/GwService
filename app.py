@@ -34,13 +34,11 @@ def Init():
             ssLst = ss_regex.findall(cond)
             for calcItem in calcLst:
                 vals = calcDef(calcItem, comb)
-                replacewith = replaceWith(vals[0])
-                condTempLst[idx] = re.sub(r'\b' + re.escape(calcItem) + r'\b',str(vals[1])+replacewith, condTempLst[idx])
+                condTempLst[idx] = re.sub(r'\b' + re.escape(calcItem) + r'\b',"Calc("+str(vals)+")", condTempLst[idx])
             for ssItem in ssLst:
-                val = calcBar(ssItem, comb)
-                condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', str(val), condTempLst[idx])
-            condTempLst[idx] = ex.ParseSpecificCondition(condTempLst[idx])
-
+                vals = calcBar(ssItem, comb)
+                condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+")", condTempLst[idx])
+            pass
         print(cindx)
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
@@ -61,7 +59,7 @@ def calcBar(exp, comb):
         num = str(num).replace("s", "")
         result += "s"
     res = scan([num, num], comb[0])
-    return result+str(res[0])+str(part)
+    return [res[0],part]
 
 def calcDef(exp, comb):
     op = re.search(r'([a-z]+)', exp)
@@ -74,7 +72,7 @@ def calcDef(exp, comb):
             values = values + scan(g.split("-"), comb[0])
         else:
             values = values + scan([g, g], comb[0])
-    return values, op[0]
+    return [values, op[0]]
 
 
 def scan(expRange, currCombination):
@@ -88,7 +86,9 @@ def scan(expRange, currCombination):
             if actRange[0] > expRange[1]:
                 break
             if expRange[0] <= actRange[0] <= expRange[1]:
-                values.append((barIndex, barIndex+(len(val)-1)))
+                for i in range(barIndex, barIndex+(len(val)-1)+1):
+                    values.append(i)
+                #values.append((barIndex, barIndex+(len(val)-1)))
             barIndex += len(val)
         else:
             if int(expRange[0]) <= val <= int(expRange[1]):
@@ -97,21 +97,6 @@ def scan(expRange, currCombination):
                 break
             barIndex += 1
     return values
-
-def replaceWith(vals):
-    exp=""
-    for idx,val in enumerate(vals):
-        if type(val) is tuple:
-            if idx > 0:
-                exp += "_"+str(val[0])+"-"+str(val[1])
-            else:
-                exp += str(val[0]) + "-" + str(val[1])
-        else:
-            if idx > 0:
-                exp = exp+"_"+str(val)
-            else:
-                exp = exp + str(val)
-    return exp
 
 if __name__ == '__main__':
     config = configparser.ConfigParser()

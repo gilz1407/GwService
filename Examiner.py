@@ -7,7 +7,7 @@ class Examiner:
     def ParseSpecificCondition(self, cond):
         newCondition = cond[:]
         operator = pp.Regex(">=|<=|!=|>|<|=").setName("operator")
-        number = pp.Regex(r"[0-9,a-z,\-,\_]*")
+        number = pp.Regex(r"[ ,\,,\[,\],\\,\\\\,0-9,a-z,\']*")
         condition = pp.Group(number + operator + number)
         condition2 = pp.Group(number + operator + number + operator + number)
         expr = pp.operatorPrecedence(condition2 | condition, [
