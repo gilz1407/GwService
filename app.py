@@ -40,13 +40,12 @@ def Init():
                 val = calcBar(ssItem, comb)
                 condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', str(val), condTempLst[idx])
             condTempLst[idx] = ex.ParseSpecificCondition(condTempLst[idx])
-        if cindx==10:
-            break
+
         print(cindx)
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
     r.set('tempComb', json.dumps(dict))
-
+    return ""
 def calcBar(exp, comb):
     result = ""
     part = ""
