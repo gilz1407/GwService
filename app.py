@@ -1,15 +1,13 @@
 import configparser
 import json
-import os
 import re
-import sys
 from flask import Flask
 from ConditionManager import ConditionManager
-from Examiner import Examiner
-import requests
-sys.path.append(os.path.abspath('../CrossInfra'))
 from Combination import Combination
-from RedisManager import connect
+from RedisConnection import connect
+#sys.path.append(os.path.abspath('../CrossInfra'))
+#from RedisManager import connect
+
 r = connect()
 app = Flask(__name__)
 configDef = None
@@ -17,11 +15,10 @@ combLst = []
 @app.route('/Gw/Init', methods=['POST'])
 def Init():
     global combLst
+    r.delete(configDef['publishOn'])
     calc_regex = re.compile(r'([a-z][a-z]+[0-9,_,-]+)')
     ss_regex = re.compile(r'([s,o,c][0-9]+)')
-    cm = ConditionManager()
-    condLst = cm.readFromFile()
-    ex = Examiner()
+    condLst = ConditionManager().readFromFile()
 
     comb = Combination()
     comb.InitCombinations()
@@ -38,12 +35,12 @@ def Init():
             for ssItem in ssLst:
                 vals = calcBar(ssItem, comb)
                 condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+")", condTempLst[idx])
-            pass
         print(cindx)
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
-    r.set('tempComb', json.dumps(dict))
+    r.set(configDef['publishOn'], json.dumps(dict))
     return ""
+
 def calcBar(exp, comb):
     result = ""
     part = ""
@@ -59,7 +56,7 @@ def calcBar(exp, comb):
         num = str(num).replace("s", "")
         result += "s"
     res = scan([num, num], comb[0])
-    return [res[0],part]
+    return [res[0], part]
 
 def calcDef(exp, comb):
     op = re.search(r'([a-z]+)', exp)
@@ -88,7 +85,6 @@ def scan(expRange, currCombination):
             if expRange[0] <= actRange[0] <= expRange[1]:
                 for i in range(barIndex, barIndex+(len(val)-1)+1):
                     values.append(i)
-                #values.append((barIndex, barIndex+(len(val)-1)))
             barIndex += len(val)
         else:
             if int(expRange[0]) <= val <= int(expRange[1]):
