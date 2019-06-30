@@ -1,5 +1,6 @@
 import configparser
 import json
+import os
 import re
 from flask import Flask
 from ConditionManager import ConditionManager
@@ -98,5 +99,5 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read('config.ini')
     configDef = config['DEFAULT']
-    app.config['SERVER_NAME'] = configDef['url']
+    app.config['SERVER_NAME'] = os.getenv("Gw_HOST")
     app.run(debug=True)
