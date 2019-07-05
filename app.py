@@ -6,8 +6,6 @@ from flask import Flask
 from ConditionManager import ConditionManager
 from Combination import Combination
 from RedisConnection import connect
-#sys.path.append(os.path.abspath('../CrossInfra'))
-#from RedisManager import connect
 
 r = connect()
 app = Flask(__name__)
@@ -32,10 +30,10 @@ def Init():
             ssLst = ss_regex.findall(cond)
             for calcItem in calcLst:
                 vals = calcDef(calcItem, comb)
-                condTempLst[idx] = re.sub(r'\b' + re.escape(calcItem) + r'\b',"Calc("+str(vals)+")", condTempLst[idx])
+                condTempLst[idx] = re.sub(r'\b' + re.escape(calcItem) + r'\b',"Calc("+str(vals)+","+"barsLst)", condTempLst[idx])
             for ssItem in ssLst:
                 vals = calcBar(ssItem, comb)
-                condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+")", condTempLst[idx])
+                condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+","+"barsLst)", condTempLst[idx])
         print(cindx)
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
@@ -100,4 +98,5 @@ if __name__ == '__main__':
     config.read('config.ini')
     configDef = config['DEFAULT']
     app.config['SERVER_NAME'] = os.getenv("Gw_HOST")
-    app.run(debug=True)
+    r.delete(configDef['publishOn'])
+    app.run(debug=False)
