@@ -15,7 +15,6 @@ combLst = []
 @app.route('/Gw/Init', methods=['POST'])
 def Init():
     global combLst
-    r.delete(configDef['publishOn'])
     calc_regex = re.compile(r'([a-z][a-z]+[0-9,_,-]+)')
     ss_regex = re.compile(r'([s,o,c][0-9]+)')
     condLst = ConditionManager().readFromFile()
@@ -38,7 +37,7 @@ def Init():
             for ssItem in ssLst:
                 vals = calcBar(ssItem, comb)
                 condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+","+"barsLst)", condTempLst[idx])
-        print(cindx)
+        #print(cindx)
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
     r.set(configDef['publishOn'], json.dumps(dict))
