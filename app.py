@@ -104,4 +104,5 @@ if __name__ == '__main__':
     configDef = config['DEFAULT']
     app.config['SERVER_NAME'] = os.getenv("Gw_HOST")
     r.delete(configDef['publishOn'])
+    Init()
     app.run(debug=False)
