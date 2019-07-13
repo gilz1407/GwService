@@ -5,6 +5,7 @@ import re
 from flask import Flask
 from ConditionManager import ConditionManager
 from Combination import Combination
+from Helper import lengthMapping
 from RedisConnection import connect
 
 r = connect()
@@ -23,6 +24,9 @@ def Init():
     comb.InitCombinations()
     combLst = comb.GetCombinationLst()
 
+    r.delete("lengthMap")
+    #r.set("lengthMap",lengthMapping(combLst))
+
     for cindx,comb in enumerate(combLst):
         condTempLst = condLst[:]
         for idx, cond in enumerate(condTempLst):
@@ -38,6 +42,7 @@ def Init():
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
     r.set(configDef['publishOn'], json.dumps(dict))
+    print("I'm ready!")
     return ""
 
 def calcBar(exp, comb):
