@@ -37,7 +37,6 @@ def Init():
             for ssItem in ssLst:
                 vals = calcBar(ssItem, comb)
                 condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+","+"barsLst)", condTempLst[idx])
-        #print(cindx)
         comb.append(condTempLst)
     dict = {"tl": str(combLst)}
     r.set(configDef['publishOn'], json.dumps(dict))
