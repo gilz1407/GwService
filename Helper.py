@@ -7,21 +7,17 @@ def listLength(lst):
             totalLength+=1
     return totalLength
 
-
 def lengthMapping(lst):
-        prevItem = -1
+        prevItem = None
         temp = lst[:]
-        counter = 0
         lenDic={}
-        sumFromLst = 0
+        refend = -1
         while len(temp) > 0:
             citem = temp.pop()
-            if prevItem != citem[1]:
-                if prevItem != -1:
-                    sumFromLst += counter + 1
-                    lenDic[prevItem] = len(lst) - sumFromLst
-                prevItem = citem[1]
-                counter = 0
-            else:
-                counter += 1
-        print(lenDic)
+            if prevItem != citem[1] and prevItem is not None:
+                lenDic[prevItem] = len(lst)+refend+1
+            refend -= 1
+            if len(temp) == 0:
+                lenDic[citem[1]] = len(lst)+refend+1
+            prevItem = citem[1]
+        return lenDic

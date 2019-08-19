@@ -30,4 +30,3 @@ class Examiner:
             ])
             condLst[idx] = expr.parseString(newCondition)[0]
         return condLst
-

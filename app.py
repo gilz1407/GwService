@@ -5,7 +5,7 @@ import re
 from flask import Flask
 from ConditionManager import ConditionManager
 from Combination import Combination
-from Helper import lengthMapping
+from Helper import lengthMapping, listLength
 from RedisConnection import connect
 
 r = connect()
@@ -24,7 +24,7 @@ def Init():
     combLst = comb.GetCombinationLst()
 
     r.delete("lengthMap")
-    #r.set("lengthMap",lengthMapping(combLst))
+    r.set("lengthMap", json.dumps(lengthMapping(combLst)))
 
     for cindx,comb in enumerate(combLst):
         condTempLst = condLst[:]
@@ -38,6 +38,7 @@ def Init():
                 vals = calcBar(ssItem, comb)
                 condTempLst[idx] = re.sub(r'\b' + re.escape(ssItem) + r'\b', "Calc("+str(vals)+","+"barsLst)", condTempLst[idx])
         comb.append(condTempLst)
+        print(str(cindx))
     dict = {"tl": str(combLst)}
     r.set(configDef['publishOn'], json.dumps(dict))
     print("I'm ready!")
@@ -78,7 +79,6 @@ def scan(expRange, currCombination):
     values = []
     barIndex = 0
     expRange = list(map(int, expRange))
-
     for val in currCombination:
         if type(val) == list:
             actRange = [val[0], val[-1]]
